@@ -5,6 +5,8 @@
             [clojure.string :as string])
   (:gen-class))
 
+(load "rule")
+
 (def cli-options  [["-h" "--help" "Muestar la pantalla de ayuda"
                     :default false
                     :flag true]
@@ -40,19 +42,18 @@
       )
     ))
 
-
-
-
-
-
 (defn -main [& args]
-  (let [[options arguments summary] (apply cli args cli-options)]
-    (when (:help options) (exit 0 (usage summary)))
+;  (let [[options arguments summary] (apply cli args cli-options)]
+;    (when (:help options) (exit 0 (usage summary)))
+;
+;    (read-csv (:input options))
+;
+;  )
 
-    (read-csv (:input options))
+  (def rule (Rule. "Name" ["slot1" "slot2"] (fn [x] (compare (:x x) 1))))
+  (println (evaluate rule [:x 2]))
+  (println (evaluate rule [:x 1]))
 
-  )
-
-
+  (println rule)
   (println "Hello, World!")
 )
