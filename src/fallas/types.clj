@@ -15,7 +15,7 @@
   (evaluate [this situation]
     (def success true)
     (doseq [rule rules]
-      (if (= (evaluate rule situation)) false) (def success false)
+      (if (= (evaluate rule situation) false) (def success false) )
       )
     success
     )
