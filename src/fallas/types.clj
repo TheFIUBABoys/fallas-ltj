@@ -6,8 +6,8 @@
 
 (defrecord Rule [name slots procedure]
   RuleProtocol
-  (evaluate [this situation] ((.procedure this) situation))
-
+  (evaluate [this situation] (procedure situation)
+    )
   )
 
 (defrecord Frame [name rules]
