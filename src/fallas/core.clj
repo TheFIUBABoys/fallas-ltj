@@ -2,10 +2,11 @@
   (:require [clojure.tools.cli :refer [cli]]
             [clojure.data.csv :as csv]
             [clojure.java.io  :as io]
-            [clojure.string :as string])
+            [clojure.string :as string]
+            [fallas.types])
+  (:import [fallas.types Rule Frame])
   (:gen-class))
 
-(load "rule")
 
 (def cli-options  [["-h" "--help" "Muestar la pantalla de ayuda"
                     :default false
@@ -43,17 +44,12 @@
     ))
 
 (defn -main [& args]
-;  (let [[options arguments summary] (apply cli args cli-options)]
-;    (when (:help options) (exit 0 (usage summary)))
-;
-;    (read-csv (:input options))
-;
-;  )
+  (let [[options arguments summary] (apply cli args cli-options)]
+    (when (:help options) (exit 0 (usage summary)))
 
-  (def rule (Rule. "Name" ["slot1" "slot2"] (fn [x] (compare (:x x) 1))))
-  (println (evaluate rule [:x 2]))
-  (println (evaluate rule [:x 1]))
+    (read-csv (:input options))
 
-  (println rule)
+  )
+
   (println "Hello, World!")
 )
