@@ -1,3 +1,3 @@
-IdProveedor,Aprobado,Confianza,Costo,FormaDePago,PlazoDeEntrega,Descuentos
-1,true,60,15689,efectivo,15,10
+id_pedido,elemento,cantidad,precio,fecha_de_entrega_pautada,fecha_de_entrega_real,entrega_aprobada,id_proveedor,tipo,disponibilidad
+1,compresor,1,10000,0533
 2,false,20,21036,cheque,30,0

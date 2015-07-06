@@ -10,7 +10,7 @@
     )
   )
 
-(defrecord Frame [name rules]
+(defrecord Frame [name severity rules]
   RuleProtocol
   (evaluate [this situation]
     (def success true)
